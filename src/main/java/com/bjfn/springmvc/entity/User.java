@@ -1,9 +1,11 @@
 package com.bjfn.springmvc.entity;
 
 
+import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 
 
+@XmlRootElement(name = "user")
 public class User implements Serializable {
     private Integer id;
     private String userName;

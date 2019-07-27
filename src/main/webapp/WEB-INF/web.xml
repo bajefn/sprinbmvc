@@ -19,10 +19,10 @@
   </filter-mapping>
 
   <!--配置dispatchServlet-->
-  <servlet>
+  <!--<servlet>
     <servlet-name>springMVC</servlet-name>
     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-    <!--配置springMVC需要加载的文件-->
+    &lt;!&ndash;配置springMVC需要加载的文件&ndash;&gt;
     <init-param>
       <param-name>contextConfigLocation</param-name>
       <param-value>classpath:/spring-*.xml</param-value>
@@ -32,9 +32,33 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>springMVC</servlet-name>
-    <!-- 匹配所有请求，此处也可以配置成 *.do 形式 -->
+    &lt;!&ndash; 匹配所有请求，此处也可以配置成 *.do 形式 &ndash;&gt;
     <url-pattern>/</url-pattern>
   </servlet-mapping>
+-->
+  <!--启动spring-->
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>classpath:spring-*.xml</param-value>
+  </context-param>
+
+
+
+
+  <!-- 启动 cxf -->
+  <servlet>
+    <servlet-name>CXFServlet</servlet-name>
+    <servlet-class>org.apache.cxf.transport.servlet.CXFServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CXFServlet</servlet-name>
+    <url-pattern>/service/*</url-pattern>
+  </servlet-mapping>
+
+
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
     <welcome-file>index.html</welcome-file>
