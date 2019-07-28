@@ -8,12 +8,14 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 
-
+@WebService
 public interface UserService {
 
+    @WebMethod
     public String sayHello(String name);
-    @GET
+    /*@GET
     @Path("/findAll")
-    @Produces(MediaType.APPLICATION_XML)
+    @Produces(MediaType.APPLICATION_XML)*/
+    @WebMethod
     public List<User> findAll();
 }
